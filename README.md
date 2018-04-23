@@ -1,9 +1,9 @@
 # MineSweeper 扫雷
 ## a frontend minesweeper game 一个前端扫雷游戏
 
-# Design Ideas
-## visual matrix of mines
-▢▢▩▢▢▢▢▢▢▢  
+# Design Ideas 设计思想
+## visual matrix of mines 雷区图形矩阵
+▢▢▩▢▢▢▢▢▢▢  
 ▢▢▢▩▢▢▢▢▢▢  
 ▢▢▢▢▢▩▢▢▢▢  
 ▢▢▢▢▢▢▢▢▢▩  
@@ -11,9 +11,9 @@
 ▢▩▢▩▢▢▢▢▢▢  
 ▢▢▢▢▢▢▢▢▢▩  
 
-## array matrix of mines, 1 means the squre is 'explosive'
-[  
-  [0, 0, 1, 0, 0, 0, 0, 0, 0, 0],  
+## array matrix of mines, 1 means the squre is 'explosive' 数字化雷区
+[  
+  [0, 0, 1, 0, 0, 0, 0, 0, 0, 0],  
   [0, 0, 0, 1, 0, 0, 0, 0, 0, 0],  
   [0, 0, 0, 0, 0, 1, 0, 0, 0, 0],  
   [0, 0, 0, 0, 0, 0, 0, 0, 0, 1],  
