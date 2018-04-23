@@ -13,23 +13,23 @@
 
 ## array matrix of mines, 1 means the squre is 'explosive'
 [  
-	[0, 0, 1, 0, 0, 0, 0, 0, 0, 0],  
-	[0, 0, 0, 1, 0, 0, 0, 0, 0, 0],  
-	[0, 0, 0, 0, 0, 1, 0, 0, 0, 0],  
-	[0, 0, 0, 0, 0, 0, 0, 0, 0, 1],  
-	[0, 0, 0, 0, 0, 0, 0, 0, 0, 0],  
-	[0, 1, 0, 1, 0, 0, 0, 0, 0, 0],  
-	[0, 0, 0, 0, 0, 0, 0, 0, 0, 1]  
+  [0, 0, 1, 0, 0, 0, 0, 0, 0, 0],  
+  [0, 0, 0, 1, 0, 0, 0, 0, 0, 0],  
+  [0, 0, 0, 0, 0, 1, 0, 0, 0, 0],  
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 1],  
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],  
+  [0, 1, 0, 1, 0, 0, 0, 0, 0, 0],  
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 1]  
 ]
 
 ## single tile object
 ### However, only 1 and 0 cannot fulfill the need. No-mine squre has the sum of mines around.
 #### mine squre
-{
-	mine: true,
-	minesBeside: 0 <!-- optional -->,
-	stepped: *boolean* <!-- optional -->
-}
+{  
+  mine: true,
+  minesBeside: 0 <!-- optional -->,
+  stepped: *boolean* <!-- optional -->
+}  
 #### no-mine squre
 {
 	mine: false, <!-- optional -->
