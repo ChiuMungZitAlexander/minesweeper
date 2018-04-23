@@ -63,7 +63,7 @@
 ## click squre to find if you step on a mine 点击方格来测试有没有雷
 ### yes => dead and game over 有=>死了，游戏结束
 ### no => Show the mines around, including horizontal, vertical and diagonal ones. At most 8 mines around. 没有=>显示周围雷数，包括上下左右及对角线的所有方格。显然，周围最多只能有8个雷。
-![GitHub](https://avatars2.githubusercontent.com/u/3265208?v=3&s=100 "GitHub,Social Coding")
+![GitHub](https://github.com/ChiuMungZitAlexander/minesweeper/blob/master/example.jpg "GitHub,Social Coding")
 
 ### If no nimes around, auto reveal squres around. 如果周围没有雷，则自动显示周围方格周围的雷数。
 
