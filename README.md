@@ -12,7 +12,8 @@
 ▢▢▢▢▢▢▢▢▢▩  
 
 ## array matrix of mines, 1 means the squre is 'explosive' 数组化雷区，1指有雷，0指无雷。
-[  
+<pre>
+[  
   [0, 0, 1, 0, 0, 0, 0, 0, 0, 0],  
   [0, 0, 0, 1, 0, 0, 0, 0, 0, 0],  
   [0, 0, 0, 0, 0, 1, 0, 0, 0, 0],  
@@ -21,42 +22,48 @@
   [0, 1, 0, 1, 0, 0, 0, 0, 0, 0],  
   [0, 0, 0, 0, 0, 0, 0, 0, 0, 1]  
 ]
+</pre>
 
 ## single squre object 单格对象
 ### However, only 1 and 0 cannot fulfill the need. No-mine squre has the sum of mines around. 然而，只用1和0并不能满足全部需求。无雷格应显示周围总雷数。
 #### mine squre 有雷格
+<pre>
 {  
-mine: true,  
-minesBeside: 0 <!-- optional -->,  
-stepped: *boolean* <!-- optional -->  
+  mine: true,
+  minesBeside: 0 <!-- optional -->,
+  stepped: *boolean* <!-- optional -->
 }  
+</pre>
+
 #### no-mine squre 无雷格
+<pre>
 {  
-mine: false, <!-- optional -->  
-minesBeside: *int[0, 8]*,  
-stepped: *boolean*  
+  mine: false, <!-- optional -->
+  minesBeside: *int[0, 8]*,
+  stepped: *boolean*
 }  
+</pre>
 #### example of the first row of matrix 第一行实例
-[  
-{ minesBeside: 0},  
-{ minesBeside: 1},  
-{ mine: true },  
-{ minesBeside: 2},  
-{ minesBeside: 1},  
-{ minesBeside: 0},  
-{ minesBeside: 0},  
-{ minesBeside: 0},  
-{ minesBeside: 0},  
-{ minesBeside: 0}  
-]  
+<pre>
+[
+  { minesBeside: 0},
+  { minesBeside: 1},
+  { mine: true },
+  { minesBeside: 2},
+  { minesBeside: 1},
+  { minesBeside: 0},
+  { minesBeside: 0},
+  { minesBeside: 0},
+  { minesBeside: 0},
+  { minesBeside: 0}
+]
+</pre>
 
 # Playing Logic 游戏逻辑
 ## click squre to find if you step on a mine 点击方格来测试有没有雷
 ### yes => dead and game over 有=>死了，游戏结束
 ### no => Show the mines around, including horizontal, vertical and diagonal ones. At most 8 mines around. 没有=>显示周围雷数，包括上下左右及对角线的所有方格。显然，周围最多只能有8个雷。
-↖  ↑  ↗  
-←  ▢  →  
-↙  ↓  ↘  
+![GitHub](https://avatars2.githubusercontent.com/u/3265208?v=3&s=100 "GitHub,Social Coding")
 
 ### If no nimes around, auto reveal squres around. 如果周围没有雷，则自动显示周围方格周围的雷数。
 
