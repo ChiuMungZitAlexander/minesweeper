@@ -1,1 +1,5 @@
+# build
 /node_modules/
+
+# distribution
+/dist/minesweeper.bundle.js
