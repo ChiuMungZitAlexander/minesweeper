@@ -3,5 +3,5 @@ import { render } from 'react-dom';
 
 import Main from './src/index'
 
-var myElement = <Main />;
+const myElement = <Main />;
 render(myElement, document.body);
