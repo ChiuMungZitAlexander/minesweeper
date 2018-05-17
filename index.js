@@ -1,7 +1,8 @@
 import React from 'react';
 import { render } from 'react-dom';
 
-import Main from './src/index'
+import App from './src/index'
+import 'style.css'
 
-const myElement = <Main />;
+const myElement = <App />;
 render(myElement, document.body);

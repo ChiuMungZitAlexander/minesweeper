@@ -1,0 +1,70 @@
+.minesweeper-app {
+    background-color: blue;
+    border-top-left-radius: .5rem;
+    border-top-right-radius: .5rem;
+    min-width: 16rem;
+    padding: .2rem;
+}
+
+.title-area {
+    align-items: center;
+    height: 2rem;
+    justify-content: space-between;
+    padding: 0 .2rem;
+}
+
+.title-area > .title {
+    color: white;
+    font-weight: bold;
+}
+
+.title-area > .control-button-group > button {
+    background-color: red;
+    border: .1rem solid #fff;
+    border-radius: .25rem;
+    cursor: pointer;
+    height: 1.7rem;
+    width: 1.7rem;
+}
+
+.content-area {
+    background-color: #bbb;
+}
+
+.content-area > .control-bar {
+    background-color: #ddd;
+    height: 2rem;
+    line-height: 2rem;
+}
+
+.control-bar nav {
+    cursor: pointer;
+    padding: 0 .5rem ;
+}
+
+.control-bar nav:hover {
+    background-color: #999;
+}
+
+.play-area {
+    padding: .5rem;
+}
+
+.play-area > .counter-panel {
+    align-items: center;
+    border-top: .1rem solid #888;
+    border-left: .1rem solid #888;
+    border-right: .1rem solid #eee;
+    border-bottom: .1rem solid #eee;
+    height: 3.5rem;
+    justify-content: center;
+    margin-bottom: .5rem;
+}
+
+.play-area > .main-board-area {
+    border-top: .1rem solid #888;
+    border-left: .1rem solid #888;
+    border-right: .1rem solid #eee;
+    border-bottom: .1rem solid #eee;
+    padding: .1rem;
+}

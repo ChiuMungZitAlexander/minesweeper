@@ -5,19 +5,27 @@ import MineBlock from '../mine-block'
 import { BLOCK_NUMBER } from '../../const.js'
 
 export default class MineBoard extends React.Component {
-    render () {
-        return <div>
-            {
-                [...Array(BLOCK_NUMBER[this.props.difficulty])].map((_, i) => (<MineBlock />))
-            }
-        </div>
-    }
+	render () {
+		return <div className='main-board fcn'>
+			{
+				[...Array(BLOCK_NUMBER[this.props.difficulty].col)].map(() => (
+					<div className='main-board-row frn'>
+						{
+							[...Array(BLOCK_NUMBER[this.props.difficulty].row)].map(() => (
+								<MineBlock />
+							))
+						}
+					</div>
+				))
+			}
+		</div>
+	}
 }
 
 MineBoard.propTypes = {
-    difficulty: PropTypes.oneOf(['easy', 'medium', 'hard'])
+	difficulty: PropTypes.oneOf(['easy', 'medium', 'hard'])
 }
 
 MineBoard.defaultValues = {
-    difficulty: 'easy'
+	difficulty: 'easy'
 }

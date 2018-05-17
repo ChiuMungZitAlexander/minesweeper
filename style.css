@@ -1,0 +1,8 @@
+/* common */
+@import "./src/styles/common.css";
+@import "./src/styles/flex.css";
+
+/* components */
+@import "./src/style.css";
+@import "./src/components/mine-board/style.css";
+@import "./src/components/mine-block/style.css";

@@ -1,0 +1,11 @@
+html body {
+    align-items: center;
+    font-family: Arial, Helvetica, sans-serif, '微软正黑';
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+    user-select: none;
+    width: 100%;
+}
