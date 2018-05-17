@@ -1,6 +1,35 @@
 .mine-block {
-    background-color: lightgray;
-    border: 1px solid gray;
+    align-items: center;
+    cursor: pointer;
+    border-top: .1rem solid #eee;
+    border-left: .1rem solid #eee;
+    border-right: .1rem solid #888;
+    border-bottom: .1rem solid #888;
     height: 25px;
+    justify-content: center;
+    width: 25px;
+}
+
+.mine-block:hover {
+    background-color: #ccc
+}
+
+.mine-block:active {
+    background-color: #ccc;
+    border-top: .1rem solid #888;
+    border-left: .1rem solid #888;
+    border-right: .1rem solid #eee;
+    border-bottom: .1rem solid #eee;
+}
+
+.mine-block-clicked {
+    align-items: center;
+    background-color: #ccc;
+    border-top: .1rem solid #888;
+    border-left: .1rem solid #888;
+    border-right: .1rem solid #eee;
+    border-bottom: .1rem solid #eee;
+    height: 25px;
+    justify-content: center;
     width: 25px;
 }
