@@ -1,0 +1,22 @@
+.df {
+    display: flex;
+}
+
+.frn {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+
+.frw {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+
+.fcn {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+}

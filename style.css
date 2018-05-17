@@ -1,5 +1,8 @@
-@import "./src/components/mine-block/style.css";
+/* common */
+@import "./src/styles/common.css";
+@import "./src/styles/flex.css";
 
-html body {
-    background-color: green;
-}
+/* components */
+@import "./src/style.css";
+@import "./src/components/mine-board/style.css";
+@import "./src/components/mine-block/style.css";

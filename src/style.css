@@ -1,0 +1,26 @@
+.minesweeper-app {
+    background-color: blue;
+    border-top-left-radius: .5rem;
+    border-top-right-radius: .5rem;
+}
+
+.title-area {
+    height: 2rem;
+    justify-content: space-between;
+}
+
+.title-area .title {
+    color: white;
+}
+
+.content-area {
+    background-color: yellow;
+}
+
+.control-bar nav {
+    display: inline;
+}
+
+.counter-panel {
+    justify-content: center;
+}
