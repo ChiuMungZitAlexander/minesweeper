@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 import MineBlock from '../mine-block'
-import { BLOCK_NUMBER } from '../../const.js'
+import { BLOCK_NUMBER } from 'lib/const.js'
 
 export default class MineBoard extends React.Component {
 	render () {
