@@ -1,0 +1,5 @@
+@import "./src/components/mine-block/style.css";
+
+html body {
+    background-color: green;
+}
