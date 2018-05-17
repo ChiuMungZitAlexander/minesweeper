@@ -3,3 +3,6 @@
 
 # distribution
 /dist/
+
+# IDE
+/.vscode/
