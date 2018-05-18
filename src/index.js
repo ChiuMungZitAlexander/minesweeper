@@ -16,6 +16,8 @@ class Main extends React.Component {
 
 	componentDidMount () {
 		const mineBoardData = MineControl.generateMineBoardData(this.state.difficulty)
+
+		this.setState({ mineBoardData })
 	}
 
 	render () {
@@ -24,10 +26,10 @@ class Main extends React.Component {
 				<section className="title-area frn">
 					<div className='title'>Minesweeper</div>
 					<div className='control-button-group'>
-						<button className='exit-button'/>
+						<button className='exit-button' />
 					</div>
 				</section>
-				
+
 				<section className="content-area fcn">
 					<div className='control-bar frn'>
 						<nav>Game</nav>
