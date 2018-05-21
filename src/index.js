@@ -5,19 +5,10 @@ import CounterPanel from './components/counter-panel'
 import TimerPanel from './components/timer-panel'
 
 import { DIFFICULTY } from 'lib/const'
-import MineControl from 'lib/mine-control'
-
 
 class Main extends React.Component {
 	state = {
-		difficulty: DIFFICULTY.EASY,
-		mineBoardData: []
-	}
-
-	componentDidMount () {
-		const mineBoardData = MineControl.generateMineBoardData(this.state.difficulty)
-
-		this.setState({ mineBoardData })
+		difficulty: DIFFICULTY.EASY
 	}
 
 	render () {
@@ -42,7 +33,7 @@ class Main extends React.Component {
 							<div className='rest-mines-counter'><CounterPanel /></div>
 						</div>
 						<div className='main-board-area frw'>
-							<MineBoard difficulty={this.state.difficulty} mineBoardData={this.state.mineBoardData} />
+							<MineBoard difficulty={this.state.difficulty} />
 						</div>
 					</div>
 				</section>

@@ -1,13 +1,23 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { get } from 'lodash'
 
 import MineBlock from '../mine-block'
+import MineControl from 'lib/mine-control'
 import { BLOCK_NUMBER } from 'lib/const.js'
 
 export default class MineBoard extends React.Component {
+	state = {
+		mineBoardData: []
+	}
+
+	componentDidMount () {
+		const mineBoardData = MineControl.generateMineBoardData(this.props.difficulty)
+
+		this.setState({ mineBoardData })
+	}
+
 	render () {
-		const mineBoardData = this.props.mineBoardData
+		const mineBoardData = this.state.mineBoardData
 
 		return mineBoardData.length
 			? <div className='main-board fcn'>
@@ -28,11 +38,9 @@ export default class MineBoard extends React.Component {
 }
 
 MineBoard.propTypes = {
-	difficulty: PropTypes.oneOf(['easy', 'medium', 'hard']),
-	mineBoardData: PropTypes.Array
+	difficulty: PropTypes.oneOf(['easy', 'medium', 'hard'])
 }
 
 MineBoard.defaultValues = {
-	difficulty: 'easy',
-	mineBoardData: []
+	difficulty: 'easy'
 }

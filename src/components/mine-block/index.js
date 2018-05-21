@@ -15,7 +15,10 @@ export default class MineBlock extends React.Component {
 		return (
 			<div className={this.state.blockClick ? 'mine-block-clicked df' : 'mine-block df'}
 				onClick={(e) => this._onBlockClick(e)}>
-				{this.state.blockClick ? this.props.data : ''}
+				{this.state.blockClick
+					? this.props.data.displayMineNumber()
+					: null
+				}
 			</div>
 		)
 	}
