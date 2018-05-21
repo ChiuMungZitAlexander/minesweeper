@@ -10,3 +10,9 @@ export const BLOCK_NUMBER = {
 	medium: {col: 16, row: 9},
 	hard: {col: 30, row: 16}
 }
+
+export const MINE_NUMBER = {
+	easy: 10,
+	medium: 40,
+	hard: 99
+}

@@ -3,7 +3,8 @@ import React from 'react'
 import MineBoard from './components/mine-board'
 import CounterPanel from './components/counter-panel'
 import TimerPanel from './components/timer-panel'
-import { DIFFICULTY } from './const'
+
+import { DIFFICULTY } from 'lib/const'
 
 class Main extends React.Component {
 	state = {
@@ -16,10 +17,10 @@ class Main extends React.Component {
 				<section className="title-area frn">
 					<div className='title'>Minesweeper</div>
 					<div className='control-button-group'>
-						<button className='exit-button'/>
+						<button className='exit-button' />
 					</div>
 				</section>
-				
+
 				<section className="content-area fcn">
 					<div className='control-bar frn'>
 						<nav>Game</nav>
