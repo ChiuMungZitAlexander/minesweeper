@@ -8,6 +8,7 @@ export default class MineBlock extends React.Component {
 
 	_onBlockClick = (e) => {
 		if (this.state.blockClick) return
+		this.props.autoRevealBlock()
 		this.setState({ blockClick: true })
 	}
 

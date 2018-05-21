@@ -10,10 +10,15 @@ export default class MineBoard extends React.Component {
 		mineBoardData: []
 	}
 
+
 	componentDidMount () {
 		const mineBoardData = MineControl.generateMineBoardData(this.props.difficulty)
 
 		this.setState({ mineBoardData })
+	}
+
+	_autoRevealBlock = (row, col) => {
+		console.log(this[`block${row}${col}`])
 	}
 
 	render () {
@@ -26,7 +31,9 @@ export default class MineBoard extends React.Component {
 						<div className='main-board-row frn'>
 							{
 								[...Array(BLOCK_NUMBER[this.props.difficulty].row)].map((_, col) => (
-									<MineBlock data={mineBoardData[row][col]} />
+									<MineBlock ref={mb => { this[`block${row}${col}`] = mb }}
+										data={mineBoardData[row][col]} row={row} col={col}
+										autoRevealBlock={() => this._autoRevealBlock(row, col)}/>
 								))
 							}
 						</div>
