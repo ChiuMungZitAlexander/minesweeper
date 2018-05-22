@@ -8,8 +8,9 @@ export default class MineBlock extends React.Component {
 
 	_onBlockClick = (e) => {
 		if (this.state.blockClick) return
-		this.props.autoRevealBlock()
-		this.setState({ blockClick: true })
+		this.setState({ blockClick: true },
+			() => this.props.data.displayMineNumber() === 0 ? this.props.autoRevealBlock() : null
+		)
 	}
 
 	render () {
@@ -26,10 +27,10 @@ export default class MineBlock extends React.Component {
 }
 
 MineBlock.propTypes = {
-	data: PropTypes.Object
+	data: PropTypes.Object,
+	autoRevealBlock: PropTypes.func
 }
 
 MineBlock.defaultValues = {
 	data: undefined
 }
-

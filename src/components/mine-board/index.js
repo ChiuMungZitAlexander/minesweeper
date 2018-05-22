@@ -1,9 +1,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { get } from 'lodash'
 
 import MineBlock from '../mine-block'
 import MineControl from 'lib/mine-control'
-import { BLOCK_NUMBER } from 'lib/const.js'
+import { BLOCK_NUMBER, DIRECTIONS } from 'lib/const.js'
 
 export default class MineBoard extends React.Component {
 	state = {
@@ -18,7 +19,13 @@ export default class MineBoard extends React.Component {
 	}
 
 	_autoRevealBlock = (row, col) => {
-		console.log(this[`block${row}${col}`])
+		const { mineBoardData } = this.state
+
+		Object.values(DIRECTIONS).forEach(direction => {
+			if (get(mineBoardData, `[${row + direction[0]}][${col + direction[1]}]`)) {
+				this.refs[`block${row + direction[0]}${col + direction[1]}`]._onBlockClick()
+			}
+		})
 	}
 
 	render () {
@@ -31,9 +38,9 @@ export default class MineBoard extends React.Component {
 						<div className='main-board-row frn'>
 							{
 								[...Array(BLOCK_NUMBER[this.props.difficulty].row)].map((_, col) => (
-									<MineBlock ref={mb => { this[`block${row}${col}`] = mb }}
+									<MineBlock ref={`block${row}${col}`}
 										data={mineBoardData[row][col]} row={row} col={col}
-										autoRevealBlock={() => this._autoRevealBlock(row, col)}/>
+										autoRevealBlock={() => this._autoRevealBlock(row, col)} />
 								))
 							}
 						</div>
