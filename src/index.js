@@ -8,7 +8,13 @@ import { DIFFICULTY } from 'lib/const'
 
 class Main extends React.Component {
 	state = {
-		difficulty: DIFFICULTY.EASY
+		difficulty: DIFFICULTY.EASY,
+		isLose: false,
+		isWin: false
+	}
+
+	_onWinOrLose = (winOrLose) => {
+		winOrLose === 'win' ? this.setState({ isWin: true }) : this.setState({ isLose: true })
 	}
 
 	render () {
@@ -33,7 +39,12 @@ class Main extends React.Component {
 							<div className='rest-mines-counter'><CounterPanel /></div>
 						</div>
 						<div className='main-board-area frw'>
-							<MineBoard difficulty={this.state.difficulty} />
+							{
+								this.state.isLose || this.state.isWin
+									? <div className='main-board-area-shelter'></div>
+									: null
+							}
+							<MineBoard difficulty={this.state.difficulty} onWinOrLose={this._onWinOrLose} />
 						</div>
 					</div>
 				</section>

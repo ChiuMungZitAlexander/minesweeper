@@ -23,9 +23,17 @@ export default class MineBoard extends React.Component {
 
 		Object.values(DIRECTIONS).forEach(direction => {
 			if (get(mineBoardData, `[${row + direction[0]}][${col + direction[1]}]`)) {
-				this.refs[`block${row + direction[0]}${col + direction[1]}`]._onBlockClick()
+				this.refs[`block${row + direction[0]}${col + direction[1]}`]._onBlockClick(true)
 			}
 		})
+	}
+
+	_autoRevealAllBlocks = () => {
+		const { mineBoardData } = this.state
+
+		mineBoardData.forEach((row, rowIndex) => row.forEach((col, colIndex) => {
+			this.refs[`block${rowIndex}${colIndex}`]._onBlockClick(true)
+		}))
 	}
 
 	render () {
@@ -40,7 +48,9 @@ export default class MineBoard extends React.Component {
 								[...Array(BLOCK_NUMBER[this.props.difficulty].row)].map((_, col) => (
 									<MineBlock ref={`block${row}${col}`}
 										data={mineBoardData[row][col]} row={row} col={col}
-										autoRevealBlock={() => this._autoRevealBlock(row, col)} />
+										autoRevealBlock={() => this._autoRevealBlock(row, col)}
+										autoRevealAllBlocks={() => this._autoRevealAllBlocks()}
+										onWinOrLose={this.props.onWinOrLose} />
 								))
 							}
 						</div>
@@ -52,7 +62,8 @@ export default class MineBoard extends React.Component {
 }
 
 MineBoard.propTypes = {
-	difficulty: PropTypes.oneOf(['easy', 'medium', 'hard'])
+	difficulty: PropTypes.oneOf(['easy', 'medium', 'hard']),
+	onWinOrLose: PropTypes.func
 }
 
 MineBoard.defaultValues = {

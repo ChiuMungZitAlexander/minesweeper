@@ -6,17 +6,23 @@ export default class MineBlock extends React.Component {
 		blockClick: false
 	}
 
-	_onBlockClick = (e) => {
+	_onBlockClick = (isAutoClick, e) => {
 		if (this.state.blockClick) return
 		this.setState({ blockClick: true },
-			() => this.props.data.displayMineNumber() === 0 ? this.props.autoRevealBlock() : null
+			() => {
+				if (this.props.data.displayMineNumber() === 0) this.props.autoRevealBlock()
+				if (this.props.data.displayMineNumber() === '@') {
+					this.props.autoRevealAllBlocks()
+					this.props.onWinOrLose('lose')
+				} 
+			}
 		)
 	}
 
 	render () {
 		return (
 			<div className={this.state.blockClick ? 'mine-block-clicked df' : 'mine-block df'}
-				onClick={(e) => this._onBlockClick(e)}>
+				onClick={(e) => this._onBlockClick(false, e)}>
 				{this.state.blockClick
 					? this.props.data.displayMineNumber()
 					: null
@@ -28,7 +34,8 @@ export default class MineBlock extends React.Component {
 
 MineBlock.propTypes = {
 	data: PropTypes.Object,
-	autoRevealBlock: PropTypes.func
+	autoRevealBlock: PropTypes.func,
+	onWinOrLose: PropTypes.func
 }
 
 MineBlock.defaultValues = {
