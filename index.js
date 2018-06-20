@@ -8,7 +8,11 @@ import rootReducer from './src/reducers'
 
 import 'style.css'
 
-const store = createStore(rootReducer)
+const initState = {
+    winOrLose: 'unknown'
+}
+
+const store = createStore(rootReducer, initState)
 
 const myElement = <Provider store={store}>
     <App />
