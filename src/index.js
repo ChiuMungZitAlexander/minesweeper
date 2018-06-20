@@ -6,17 +6,7 @@ import TimerPanel from './components/timer-panel'
 
 import { DIFFICULTY } from 'lib/const'
 
-class Main extends React.Component {
-	state = {
-		difficulty: DIFFICULTY.EASY,
-		isLose: false,
-		isWin: false
-	}
-
-	_onWinOrLose = (winOrLose) => {
-		winOrLose === 'win' ? this.setState({ isWin: true }) : this.setState({ isLose: true })
-	}
-
+class App extends React.Component {
 	render () {
 		return (
 			<div className='minesweeper-app fcn'>
@@ -26,7 +16,6 @@ class Main extends React.Component {
 						<button className='exit-button' />
 					</div>
 				</section>
-
 				<section className="content-area fcn">
 					<div className='control-bar frn'>
 						<nav>Game</nav>
@@ -39,12 +28,7 @@ class Main extends React.Component {
 							<div className='rest-mines-counter'><CounterPanel /></div>
 						</div>
 						<div className='main-board-area frw'>
-							{
-								this.state.isLose || this.state.isWin
-									? <div className='main-board-area-shelter'></div>
-									: null
-							}
-							<MineBoard difficulty={this.state.difficulty} onWinOrLose={this._onWinOrLose} />
+							<MineBoard />
 						</div>
 					</div>
 				</section>
@@ -53,4 +37,4 @@ class Main extends React.Component {
 	}
 }
 
-export default Main
+export default App

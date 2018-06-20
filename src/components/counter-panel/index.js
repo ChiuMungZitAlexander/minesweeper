@@ -1,9 +1,9 @@
 import React from 'react'
 
-import LiquidCrystalDisplay from '../liquid-crystal-display/index'
-
-class CounterPanel extends LiquidCrystalDisplay {
-	
+const CounterPanel = (state) => {
+	return <div className='liquid-crystal-display'>
+		<div>123</div>
+	</div>
 }
 
 export default CounterPanel

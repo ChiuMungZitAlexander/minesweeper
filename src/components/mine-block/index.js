@@ -1,43 +1,34 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { connect } from 'react-redux'
 
-export default class MineBlock extends React.Component {
-	state = {
-		blockClick: false
-	}
+import { gameOver } from '../../actions'
 
-	_onBlockClick = (isAutoClick, e) => {
-		if (this.state.blockClick) return
-		this.setState({ blockClick: true },
-			() => {
-				if (this.props.data.displayMineNumber() === 0) this.props.autoRevealBlock()
-				if (this.props.data.displayMineNumber() === '@') {
-					this.props.autoRevealAllBlocks()
-					this.props.onWinOrLose('lose')
-				} 
-			}
-		)
-	}
+const mapStateToProps = (state, ownProps) => {
+	return { winOrLose: state.winOrLose }
+}
 
-	render () {
-		return (
-			<div className={this.state.blockClick ? 'mine-block-clicked df' : 'mine-block df'}
-				onClick={(e) => this._onBlockClick(false, e)}>
-				{this.state.blockClick
-					? this.props.data.displayMineNumber()
-					: null
-				}
-			</div>
-		)
+const mapDispatchToProps = (dispatch, ownProps) => {
+	return {
+		onLose () {
+			dispatch({
+				type: 'GAME_OVER'
+			})
+		}
 	}
+}
+
+const MineBlock = (props) => {
+	return (
+		<div className="mine-block df" onClick={props.onLose}>
+			{props.row}{props.col}
+		</div>
+	)
 }
 
 MineBlock.propTypes = {
-	data: PropTypes.Object,
-	autoRevealBlock: PropTypes.func,
-	onWinOrLose: PropTypes.func
+	row: PropTypes.number,
+	col: PropTypes.number
 }
 
-MineBlock.defaultValues = {
-	data: undefined
-}
+export default connect(mapStateToProps, mapDispatchToProps)(MineBlock)
