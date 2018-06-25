@@ -1,9 +1,9 @@
-import { gameOver } from '../actions'
-
 const mineSweeperReducers = (state, action) => {
     switch (action.type) {
-        case 'GAME_OVER':
-            return { winOrLose: 'game_over' }
+        case 'BLOCK_CLICK':
+            return Object.assign({}, state, {
+                mineData: action.data
+            })
         default:
             return state
     }

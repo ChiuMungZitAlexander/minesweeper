@@ -9,7 +9,107 @@ import rootReducer from './src/reducers'
 import 'style.css'
 
 const initState = {
-    winOrLose: 'unknown'
+    mineData: [
+        [
+            { isMine: false, clicked: false, minesAround: 0 },
+            { isMine: false, clicked: false, minesAround: 0 },
+            { isMine: false, clicked: false, minesAround: 0 },
+            { isMine: false, clicked: false, minesAround: 0 },
+            { isMine: false, clicked: false, minesAround: 0 },
+            { isMine: false, clicked: false, minesAround: 0 },
+            { isMine: false, clicked: false, minesAround: 0 },
+            { isMine: false, clicked: false, minesAround: 0 },
+            { isMine: false, clicked: false, minesAround: 0 }
+        ],
+        [
+            { isMine: false, clicked: false, minesAround: 0 },
+            { isMine: false, clicked: false, minesAround: 0 },
+            { isMine: false, clicked: false, minesAround: 0 },
+            { isMine: false, clicked: false, minesAround: 0 },
+            { isMine: false, clicked: false, minesAround: 0 },
+            { isMine: false, clicked: false, minesAround: 0 },
+            { isMine: false, clicked: false, minesAround: 0 },
+            { isMine: false, clicked: false, minesAround: 0 },
+            { isMine: false, clicked: false, minesAround: 0 }
+        ],
+        [
+            { isMine: false, clicked: false, minesAround: 0 },
+            { isMine: false, clicked: false, minesAround: 0 },
+            { isMine: false, clicked: false, minesAround: 0 },
+            { isMine: false, clicked: false, minesAround: 0 },
+            { isMine: false, clicked: false, minesAround: 0 },
+            { isMine: false, clicked: false, minesAround: 0 },
+            { isMine: false, clicked: false, minesAround: 0 },
+            { isMine: false, clicked: false, minesAround: 0 },
+            { isMine: false, clicked: false, minesAround: 0 }
+        ],
+        [
+            { isMine: false, clicked: false, minesAround: 0 },
+            { isMine: false, clicked: false, minesAround: 0 },
+            { isMine: false, clicked: false, minesAround: 0 },
+            { isMine: false, clicked: false, minesAround: 0 },
+            { isMine: false, clicked: false, minesAround: 0 },
+            { isMine: false, clicked: false, minesAround: 0 },
+            { isMine: false, clicked: false, minesAround: 0 },
+            { isMine: false, clicked: false, minesAround: 0 },
+            { isMine: false, clicked: false, minesAround: 0 }
+        ],
+        [
+            { isMine: false, clicked: false, minesAround: 0 },
+            { isMine: false, clicked: false, minesAround: 0 },
+            { isMine: false, clicked: false, minesAround: 0 },
+            { isMine: false, clicked: false, minesAround: 0 },
+            { isMine: false, clicked: false, minesAround: 0 },
+            { isMine: false, clicked: false, minesAround: 0 },
+            { isMine: false, clicked: false, minesAround: 0 },
+            { isMine: false, clicked: false, minesAround: 0 },
+            { isMine: false, clicked: false, minesAround: 0 }
+        ],
+        [
+            { isMine: false, clicked: false, minesAround: 0 },
+            { isMine: false, clicked: false, minesAround: 0 },
+            { isMine: false, clicked: false, minesAround: 0 },
+            { isMine: false, clicked: false, minesAround: 0 },
+            { isMine: false, clicked: false, minesAround: 0 },
+            { isMine: false, clicked: false, minesAround: 0 },
+            { isMine: false, clicked: false, minesAround: 0 },
+            { isMine: false, clicked: false, minesAround: 0 },
+            { isMine: false, clicked: false, minesAround: 0 }
+        ],
+        [
+            { isMine: false, clicked: false, minesAround: 0 },
+            { isMine: false, clicked: false, minesAround: 0 },
+            { isMine: false, clicked: false, minesAround: 0 },
+            { isMine: false, clicked: false, minesAround: 0 },
+            { isMine: false, clicked: false, minesAround: 0 },
+            { isMine: false, clicked: false, minesAround: 0 },
+            { isMine: false, clicked: false, minesAround: 0 },
+            { isMine: false, clicked: false, minesAround: 0 },
+            { isMine: false, clicked: false, minesAround: 0 }
+        ],
+        [
+            { isMine: false, clicked: false, minesAround: 0 },
+            { isMine: false, clicked: false, minesAround: 0 },
+            { isMine: false, clicked: false, minesAround: 0 },
+            { isMine: false, clicked: false, minesAround: 0 },
+            { isMine: false, clicked: false, minesAround: 0 },
+            { isMine: false, clicked: false, minesAround: 0 },
+            { isMine: false, clicked: false, minesAround: 0 },
+            { isMine: false, clicked: false, minesAround: 0 },
+            { isMine: false, clicked: false, minesAround: 0 }
+        ],
+        [
+            { isMine: true, clicked: false },
+            { isMine: true, clicked: false },
+            { isMine: true, clicked: false },
+            { isMine: true, clicked: false },
+            { isMine: true, clicked: false },
+            { isMine: true, clicked: false },
+            { isMine: true, clicked: false },
+            { isMine: true, clicked: false },
+            { isMine: true, clicked: false }
+        ],
+    ]
 }
 
 const store = createStore(rootReducer, initState)

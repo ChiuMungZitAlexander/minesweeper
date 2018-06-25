@@ -1,10 +1,7 @@
 import React from 'react'
-import PropTypes from 'prop-types'
-import { get } from 'lodash'
 
 import MineBlock from '../mine-block'
-import MineControl from 'lib/mine-control'
-import { BLOCK_NUMBER, DIRECTIONS } from 'lib/const.js'
+import { BLOCK_NUMBER } from 'lib/const.js'
 
 const MineBoard = () => {
 	return <div className='main-board fcn'>
