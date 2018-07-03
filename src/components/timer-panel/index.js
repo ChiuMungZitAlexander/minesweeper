@@ -1,9 +1,9 @@
 import React from 'react'
 
-import LiquidCrystalDisplay from '../liquid-crystal-display/index'
-
-class TimerPanel extends LiquidCrystalDisplay {
-	
+const TimePanel = (state) => {
+	return <div className='liquid-crystal-display'>
+		<div>123</div>
+	</div>
 }
 
-export default TimerPanel
+export default TimePanel

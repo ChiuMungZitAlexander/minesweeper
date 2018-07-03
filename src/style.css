@@ -48,6 +48,7 @@
 
 .play-area {
     padding: .5rem;
+    position: relative;
 }
 
 .play-area > .counter-panel {
@@ -67,4 +68,11 @@
     border-right: .1rem solid #eee;
     border-bottom: .1rem solid #eee;
     padding: .1rem;
+    position: relative;
+}
+
+.main-board-area > .main-board-area-shelter {
+    height: 100%;
+    position: absolute;
+    width: 100%;
 }
