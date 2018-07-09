@@ -88,15 +88,15 @@ const initState = {
             { isMine: false, clicked: false, minesAround: 0 }
         ],
         [
-            { isMine: false, clicked: false, minesAround: 0 },
-            { isMine: false, clicked: false, minesAround: 0 },
-            { isMine: false, clicked: false, minesAround: 0 },
-            { isMine: false, clicked: false, minesAround: 0 },
-            { isMine: false, clicked: false, minesAround: 0 },
-            { isMine: false, clicked: false, minesAround: 0 },
-            { isMine: false, clicked: false, minesAround: 0 },
-            { isMine: false, clicked: false, minesAround: 0 },
-            { isMine: false, clicked: false, minesAround: 0 }
+            { isMine: false, clicked: false, minesAround: 2 },
+            { isMine: false, clicked: false, minesAround: 3 },
+            { isMine: false, clicked: false, minesAround: 3 },
+            { isMine: false, clicked: false, minesAround: 3 },
+            { isMine: false, clicked: false, minesAround: 3 },
+            { isMine: false, clicked: false, minesAround: 3 },
+            { isMine: false, clicked: false, minesAround: 3 },
+            { isMine: false, clicked: false, minesAround: 3 },
+            { isMine: false, clicked: false, minesAround: 2 }
         ],
         [
             { isMine: true, clicked: false },
