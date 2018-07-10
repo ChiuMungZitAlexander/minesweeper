@@ -4,7 +4,7 @@ const mineSweeperReducers = (state, action) => {
     switch (action.type) {
         case 'BLOCK_CLICK':
             return Object.assign({}, state, {
-                mineData: mineBlockClickHandler(state.mineData, action.row, action.col)
+                mineData: mineBlockClickHandler(state.mineData, action.row, action.col, state.difficulty)
             })
         default:
             return state

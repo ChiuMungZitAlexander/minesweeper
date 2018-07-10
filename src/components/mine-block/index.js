@@ -8,7 +8,7 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch, ownProps) => {
 	return {
-		onBlockClick (mineData) {
+		onBlockClick () {
 			dispatch({
 				type: 'BLOCK_CLICK',
 				row: ownProps.row,
@@ -19,7 +19,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
 }
 
 const MineBlock = ({ mineData = [], row, col, onBlockClick } = props) => {
-	const thisBlock = mineData[row][col]
+	const thisBlock = mineData[col][row]
 	return (
 		<div className={thisBlock.clicked ? "mine-block-clicked df" : "mine-block df"}
 			onClick={thisBlock.clicked ? _ => _ : () => onBlockClick()}>

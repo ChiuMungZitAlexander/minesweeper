@@ -11,7 +11,8 @@ import rootReducer from './src/reducers'
 import 'style.css'
 
 const initState = {
-    mineData: generateMineBoardData('easy')
+    mineData: generateMineBoardData('medium'),
+    difficulty: 'medium'
 }
 
 const store = createStore(rootReducer, initState)
