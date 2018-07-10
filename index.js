@@ -3,113 +3,15 @@ import { render } from 'react-dom'
 import { Provider } from 'react-redux'
 import { createStore } from 'redux'
 
+import { generateMineBoardData } from 'lib/mine-control'
+
 import App from './src/index'
 import rootReducer from './src/reducers'
 
 import 'style.css'
 
 const initState = {
-    mineData: [
-        [
-            { isMine: false, clicked: false, minesAround: 0 },
-            { isMine: false, clicked: false, minesAround: 0 },
-            { isMine: false, clicked: false, minesAround: 0 },
-            { isMine: false, clicked: false, minesAround: 0 },
-            { isMine: false, clicked: false, minesAround: 0 },
-            { isMine: false, clicked: false, minesAround: 0 },
-            { isMine: false, clicked: false, minesAround: 0 },
-            { isMine: false, clicked: false, minesAround: 0 },
-            { isMine: false, clicked: false, minesAround: 0 }
-        ],
-        [
-            { isMine: false, clicked: false, minesAround: 0 },
-            { isMine: false, clicked: false, minesAround: 0 },
-            { isMine: false, clicked: false, minesAround: 0 },
-            { isMine: false, clicked: false, minesAround: 0 },
-            { isMine: false, clicked: false, minesAround: 0 },
-            { isMine: false, clicked: false, minesAround: 0 },
-            { isMine: false, clicked: false, minesAround: 0 },
-            { isMine: false, clicked: false, minesAround: 0 },
-            { isMine: false, clicked: false, minesAround: 0 }
-        ],
-        [
-            { isMine: false, clicked: false, minesAround: 0 },
-            { isMine: false, clicked: false, minesAround: 0 },
-            { isMine: false, clicked: false, minesAround: 0 },
-            { isMine: false, clicked: false, minesAround: 0 },
-            { isMine: false, clicked: false, minesAround: 0 },
-            { isMine: false, clicked: false, minesAround: 0 },
-            { isMine: false, clicked: false, minesAround: 0 },
-            { isMine: false, clicked: false, minesAround: 0 },
-            { isMine: false, clicked: false, minesAround: 0 }
-        ],
-        [
-            { isMine: false, clicked: false, minesAround: 0 },
-            { isMine: false, clicked: false, minesAround: 0 },
-            { isMine: false, clicked: false, minesAround: 0 },
-            { isMine: false, clicked: false, minesAround: 0 },
-            { isMine: false, clicked: false, minesAround: 0 },
-            { isMine: false, clicked: false, minesAround: 0 },
-            { isMine: false, clicked: false, minesAround: 0 },
-            { isMine: false, clicked: false, minesAround: 0 },
-            { isMine: false, clicked: false, minesAround: 0 }
-        ],
-        [
-            { isMine: false, clicked: false, minesAround: 0 },
-            { isMine: false, clicked: false, minesAround: 0 },
-            { isMine: false, clicked: false, minesAround: 0 },
-            { isMine: false, clicked: false, minesAround: 0 },
-            { isMine: false, clicked: false, minesAround: 0 },
-            { isMine: false, clicked: false, minesAround: 0 },
-            { isMine: false, clicked: false, minesAround: 0 },
-            { isMine: false, clicked: false, minesAround: 0 },
-            { isMine: false, clicked: false, minesAround: 0 }
-        ],
-        [
-            { isMine: false, clicked: false, minesAround: 0 },
-            { isMine: false, clicked: false, minesAround: 0 },
-            { isMine: false, clicked: false, minesAround: 0 },
-            { isMine: false, clicked: false, minesAround: 0 },
-            { isMine: false, clicked: false, minesAround: 0 },
-            { isMine: false, clicked: false, minesAround: 0 },
-            { isMine: false, clicked: false, minesAround: 0 },
-            { isMine: false, clicked: false, minesAround: 0 },
-            { isMine: false, clicked: false, minesAround: 0 }
-        ],
-        [
-            { isMine: false, clicked: false, minesAround: 0 },
-            { isMine: false, clicked: false, minesAround: 0 },
-            { isMine: false, clicked: false, minesAround: 0 },
-            { isMine: false, clicked: false, minesAround: 0 },
-            { isMine: false, clicked: false, minesAround: 0 },
-            { isMine: false, clicked: false, minesAround: 0 },
-            { isMine: false, clicked: false, minesAround: 0 },
-            { isMine: false, clicked: false, minesAround: 0 },
-            { isMine: false, clicked: false, minesAround: 0 }
-        ],
-        [
-            { isMine: false, clicked: false, minesAround: 2 },
-            { isMine: false, clicked: false, minesAround: 3 },
-            { isMine: false, clicked: false, minesAround: 3 },
-            { isMine: false, clicked: false, minesAround: 3 },
-            { isMine: false, clicked: false, minesAround: 3 },
-            { isMine: false, clicked: false, minesAround: 3 },
-            { isMine: false, clicked: false, minesAround: 3 },
-            { isMine: false, clicked: false, minesAround: 3 },
-            { isMine: false, clicked: false, minesAround: 2 }
-        ],
-        [
-            { isMine: true, clicked: false },
-            { isMine: true, clicked: false },
-            { isMine: true, clicked: false },
-            { isMine: true, clicked: false },
-            { isMine: true, clicked: false },
-            { isMine: true, clicked: false },
-            { isMine: true, clicked: false },
-            { isMine: true, clicked: false },
-            { isMine: true, clicked: false }
-        ],
-    ]
+    mineData: generateMineBoardData('easy')
 }
 
 const store = createStore(rootReducer, initState)

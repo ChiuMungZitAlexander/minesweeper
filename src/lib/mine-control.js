@@ -27,9 +27,39 @@ export const mineBlockClickHandler = (mineData, row, col) => {
     return newMineData
 }
 
-export const generateMineBoardData = (difficulty) => {
+export const generateMineBoardData = (difficulty = DIFFICULTY.EASY) => {
     const blockNumber = BLOCK_NUMBER[difficulty]
-    const mineNumber = MINE_NUMBER[difficulty]
+    let mineNumber = MINE_NUMBER[difficulty]
 
-    return blockNumber + mineNumber
+    let boardData = Array(blockNumber.row).fill().map(r =>
+        Array(blockNumber.col).fill().map(c => (
+            {
+                clicked: false,
+                isMine: false,
+                minesAround: 0
+            }
+        ))
+    )
+
+    while (mineNumber) {
+        const randomRowIndex = Math.floor(Math.random() * blockNumber.row)
+        const randomColIndex = Math.floor(Math.random() * blockNumber.col)
+
+        if (boardData[randomRowIndex][randomColIndex].isMine) {
+            continue
+        } else {
+            boardData[randomRowIndex][randomColIndex].isMine = true
+
+            Object.values(DIRECTIONS).forEach(direction => {
+                if (randomRowIndex + direction[0] > -1 && randomRowIndex + direction[0] < 9
+                    && randomColIndex + direction[1] > -1 && randomColIndex + direction[1] < 9) {
+                    boardData[randomRowIndex + direction[0]][randomColIndex + direction[1]].minesAround++
+                }
+            })
+        }
+
+        mineNumber--
+    }
+
+    return boardData
 }
