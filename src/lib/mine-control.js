@@ -17,9 +17,9 @@ export const mineBlockClickHandler = (mineData, row, col, difficulty) => {
                 }
             })
         } else if (!newMineData[col][row].clicked && newMineData[col][row].isMine) {
-            newMineData = newMineData.map(r => {
-                return r.map(c => ({ ...c, clicked: true }))
-            })
+            newMineData = newMineData.map(r => (
+                r.map(c => ({ ...c, clicked: true }))
+            ))
         }
     }
 
@@ -62,6 +62,5 @@ export const generateMineBoardData = (difficulty = DIFFICULTY.EASY) => {
         mineNumber--
     }
 
-    console.log(boardData)
     return boardData
 }

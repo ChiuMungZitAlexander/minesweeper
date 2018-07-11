@@ -1,15 +1,20 @@
 import React from 'react'
-
-import MineBlock from '../mine-block'
+import { connect } from 'react-redux'
 import { BLOCK_NUMBER } from 'lib/const.js'
 
-const MineBoard = () => {
+import MineBlock from '../mine-block'
+
+const mapStateToProps = (state) => {
+	return { difficulty: state.difficulty }
+}
+
+const MineBoard = ({ difficulty } = props) => {
 	return <div className='main-board fcn'>
 		{
-			[...Array(BLOCK_NUMBER['medium'].row)].map((_, row) => (
+			[...Array(BLOCK_NUMBER[difficulty].row)].map((_, row) => (
 				<div className='main-board-row frn'>
 					{
-						[...Array(BLOCK_NUMBER['medium'].col)].map((_, col) => (
+						[...Array(BLOCK_NUMBER[difficulty].col)].map((_, col) => (
 							<MineBlock row={row} col={col} />
 						))
 					}
@@ -19,4 +24,4 @@ const MineBoard = () => {
 	</div>
 }
 
-export default MineBoard
+export default connect(mapStateToProps)(MineBoard)
