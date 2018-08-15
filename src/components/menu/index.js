@@ -35,6 +35,10 @@ class MenuComp extends React.Component {
 		})
 	}
 
+	showHelp = () => {
+		alert('Copyright ©2018 by AlexanderZhao')
+	}
+
 	render() {
 		const { collapsed } = this.state
 		const { onChangeDifficulty } = this.props
@@ -48,7 +52,7 @@ class MenuComp extends React.Component {
 						<div className="menu-item" onClick={() => onChangeDifficulty('hard')}>Hard</div>
 					</div>
 				</nav>
-				<nav>Help</nav>
+				<nav onClick={this.showHelp}>Help</nav>
 			</div>
 		)
 	}
