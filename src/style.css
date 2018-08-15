@@ -35,20 +35,13 @@
     background-color: #ddd;
     height: 2rem;
     line-height: 2rem;
-}
-
-.control-bar nav {
-    cursor: pointer;
-    padding: 0 .5rem ;
-}
-
-.control-bar nav:hover {
-    background-color: #999;
+    z-index: 1000;
 }
 
 .play-area {
     padding: .5rem;
     position: relative;
+    z-index: 999;
 }
 
 .play-area > .counter-panel {

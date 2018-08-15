@@ -21,4 +21,4 @@ const myElement = <Provider store={store}>
     <App />
 </Provider>
 
-render(myElement, document.body)
+render(myElement, document.getElementById('root'))

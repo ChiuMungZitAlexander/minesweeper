@@ -7,9 +7,10 @@ const mineSweeperReducers = (state, action) => {
                 mineData: mineBlockClickHandler(state.mineData, action.row, action.col, state.difficulty)
             })
         case 'DIFFICULTY_CHANGE':
+            const { difficulty = 'easy' } = action
             return Object.assign({}, state, {
-                mineData: generateMineBoardData('easy'),
-                difficulty: 'easy'
+                mineData: generateMineBoardData(difficulty),
+                difficulty,
             })
         default:
             return state
