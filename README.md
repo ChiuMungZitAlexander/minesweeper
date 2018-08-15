@@ -1,8 +1,11 @@
-# MineSweeper 扫雷
-## a frontend minesweeper game 一个前端扫雷游戏
+# 扫雷
+## 纯前端扫雷游戏
 
-# Design Ideas 设计思想
-## visual matrix of mines 雷区图形矩阵
+# 技术栈
+## javascript babel es6 webpack react redux
+
+# 设计思想
+## 雷区图形矩阵
 ▢▢▩▢▢▢▢▢▢▢  
 ▢▢▢▩▢▢▢▢▢▢  
 ▢▢▢▢▢▩▢▢▢▢  
@@ -11,7 +14,7 @@
 ▢▩▢▩▢▢▢▢▢▢  
 ▢▢▢▢▢▢▢▢▢▩  
 
-## array matrix of mines, 1 means the squre is 'explosive' 数组化雷区，1指有雷，0指无雷。
+## 数组化雷区，1指有雷，0指无雷。
 <pre>
 [  
   [0, 0, 1, 0, 0, 0, 0, 0, 0, 0],  
@@ -24,48 +27,47 @@
 ]
 </pre>
 
-## single squre object 单格对象
-### However, only 1 and 0 cannot fulfill the need. No-mine squre has the sum of mines around. 然而，只用1和0并不能满足全部需求。无雷格应显示周围总雷数。
-#### mine squre 有雷格
+## 单格对象
+### 然而，只用1和0并不能满足全部需求。无雷格应显示周围总雷数，且未点击方格不应显示详情。
+#### 有雷格
 <pre>
 {  
-  mine: true,
-  minesBeside: 0 <!-- optional -->,
-  stepped: *boolean* <!-- optional -->
+  isMine: true,
+  minesAround: *int[0, 8],
+  clicked: *boolean*
 }  
 </pre>
 
-#### no-mine squre 无雷格
+#### 无雷格
 <pre>
 {  
-  mine: false, <!-- optional -->
-  minesBeside: *int[0, 8]*,
-  stepped: *boolean*
+  isMine: false,
+  minesAround: *int[0, 8]*,
+  clicked: *boolean*
 }  
 </pre>
-#### example of the first row of matrix 第一行实例
+
+#### 雷区单行/列实例
 <pre>
 [
-  { minesBeside: 0},
-  { minesBeside: 1},
-  { mine: true },
-  { minesBeside: 2},
-  { minesBeside: 1},
-  { minesBeside: 0},
-  { minesBeside: 0},
-  { minesBeside: 0},
-  { minesBeside: 0},
-  { minesBeside: 0}
+  { clicked: false, minesAround: 0, isMine: false },
+  { clicked: false, minesAround: 1, isMine: false },
+  { clicked: false, minesAround: 0, isMine: true },
+  { clicked: false, minesAround: 2, isMine: false },
+  { clicked: false, minesAround: 1, isMine: false },
+  { clicked: false, minesAround: 0, isMine: false },
+  { clicked: false, minesAround: 0, isMine: false },
+  { clicked: false, minesAround: 0, isMine: false },
+  { clicked: false, minesAround: 0, isMine: false },
+  { clicked: false, minesAround: 0, isMine: false }
 ]
 </pre>
 
-# Playing Logic 游戏逻辑
-## click squre to find if you step on a mine 点击方格来测试有没有雷
-### yes => dead and game over 有=>死了，游戏结束
-### no => Show the mines around, including horizontal, vertical and diagonal ones. At most 8 mines around. 没有=>显示周围雷数，包括上下左右及对角线的所有方格。显然，周围最多只能有8个雷。
+# 游戏逻辑
+## 点击方格来试探有没有雷
+### 有雷：游戏结束，所有雷格显示详情，计时器暂停
+### 无雷：显示周围雷数，包括上下左右及对角线的所有方格。显然，周围最多只能有8个雷。如果周围雷数为0，则自动翻开周围8个方格并递归
 ![GitHub](https://github.com/ChiuMungZitAlexander/minesweeper/blob/master/example.jpg "GitHub,Social Coding")
 
-### If no nimes around, auto reveal squres around. 如果周围没有雷，则自动显示周围方格周围的雷数。
-
-## how to win 如何胜利
-### all no-mine squres are stepped 所有无雷方格均被点击
+## 如何胜利
+### 所有无雷方格均被点击
