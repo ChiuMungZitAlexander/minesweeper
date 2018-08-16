@@ -5,7 +5,7 @@ const mineSweeperReducers = (state, action) => {
         case 'BLOCK_CLICK':
             return Object.assign({}, state, {
                 mineData: mineBlockClickHandler(state.mineData, action.row, action.col, state.difficulty),
-                gameStatus: 'underway',
+                gameStatus: action.isMine ? 'over' : 'underway',
             })
         case 'DIFFICULTY_CHANGE':
             const { difficulty = 'easy' } = action

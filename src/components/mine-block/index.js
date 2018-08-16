@@ -8,11 +8,12 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch, ownProps) => {
 	return {
-		onBlockClick () {
+		onBlockClick (isMine) {
 			dispatch({
 				type: 'BLOCK_CLICK',
 				row: ownProps.row,
-				col: ownProps.col
+				col: ownProps.col,
+				isMine,
 			})
 		}
 	}
@@ -22,7 +23,7 @@ const MineBlock = ({ mineData = [], row, col, onBlockClick } = props) => {
 	const thisBlock = mineData[col][row]
 	return (
 		<div className={thisBlock.clicked ? "mine-block-clicked df" : "mine-block df"}
-			onClick={thisBlock.clicked ? _ => _ : () => onBlockClick()}>
+			onClick={thisBlock.clicked ? _ => _ : () => onBlockClick(thisBlock.isMine)}>
 			{thisBlock.clicked && (thisBlock.isMine
 				? <div className="mine-icon">
 					<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" xlink="http://www.w3.org/1999/xlink" enableBackground="new 0 0 512 512">
