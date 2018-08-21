@@ -13,7 +13,7 @@ export const BLOCK_NUMBER = {
 
 /* easy: 10, medium: 40, hard: 99 */
 export const MINE_NUMBER = {
-	easy: 10,
+	easy: 2,
 	medium: 10,
 	hard: 99
 }
