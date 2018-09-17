@@ -21,7 +21,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
 	}
 }
 
-const MineBlock = ({ mineData = [], row, col, onBlockClick, gameStatus } = props) => {
+const MineBlock = ({ mineData = [], row, col, onBlockClick, gameStatus }) => {
 	const thisBlock = mineData[col][row]
 	const isWin = gameStatus === 'win'
 
