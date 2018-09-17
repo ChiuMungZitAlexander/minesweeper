@@ -36,8 +36,10 @@ const MineBlock = ({ mineData = [], row, col, dispatch }) => {
 }
 
 MineBlock.propTypes = {
+	mineData: PropTypes.array,
 	row: PropTypes.number,
 	col: PropTypes.number,
+	dispatch: PropTypes.func,
 }
 
 export default connect(mapStateToProps)(MineBlock)
