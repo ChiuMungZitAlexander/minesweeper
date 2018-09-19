@@ -14,7 +14,7 @@
 }
 
 .title-area > .title {
-    color: white;
+    color: fff;
     font-weight: bold;
 }
 
@@ -25,6 +25,10 @@
     cursor: pointer;
     height: 1.7rem;
     width: 1.7rem;
+}
+
+.menu-area {
+    background-color: #eee;
 }
 
 .content-area {
