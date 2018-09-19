@@ -1,5 +1,8 @@
 import React from 'react'
-import { isNullOrUndefined } from 'util';
+import PropTypes from 'prop-types'
+import { connect } from 'react-redux'
+
+import { changeDifficulty } from '../../actions'
 
 const MENU_CONFIG = [
     {
@@ -42,6 +45,10 @@ const MENU_CONFIG = [
 ]
 
 class Menu extends React.Component {
+    static mapDispatchToProps = dispatch => ({
+        alterDifficulty: difficulty => dispatch(changeDifficulty(difficulty)),
+    })
+
     state = {
         level1Expanded: null,
         submenuExpanded: null,
@@ -62,8 +69,8 @@ class Menu extends React.Component {
 
     handleMenuTitleClick = (e, key) => {
         e.stopPropagation()
-        
-        const {level1Expanded} = this.state
+
+        const { level1Expanded } = this.state
         this.setState({
             level1Expanded: level1Expanded === key ? null : key,
         })
@@ -83,6 +90,7 @@ class Menu extends React.Component {
 
     render() {
         const { level1Expanded, submenuExpanded } = this.state
+        const { alterDifficulty } = this.props
         return (
             <div className="menu-wrapper">
                 <ul className="menu-title">
@@ -103,7 +111,9 @@ class Menu extends React.Component {
                                             {selection.subMenu && selection.key === submenuExpanded
                                                 && <ul className="submenu-content">
                                                     {selection.subMenu.map(submenu => (
-                                                        <li key={submenu.key} className="submenu-selection">
+                                                        <li key={submenu.key} className="submenu-selection"
+                                                            onClick={() => alterDifficulty(submenu.key)}
+                                                        >
                                                             {submenu.title}
                                                         </li>
                                                     ))}
@@ -121,4 +131,4 @@ class Menu extends React.Component {
     }
 }
 
-export default Menu
+export default connect(null, Menu.mapDispatchToProps)(Menu)
