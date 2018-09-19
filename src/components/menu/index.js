@@ -131,4 +131,8 @@ class Menu extends React.Component {
     }
 }
 
+Menu.propTypes = {
+    alterDifficulty: PropTypes.func.isRequired,
+}
+
 export default connect(null, Menu.mapDispatchToProps)(Menu)
