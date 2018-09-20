@@ -5,11 +5,11 @@ import { connect } from 'react-redux'
 import { clickBlock, rightClickBlock } from '../../actions'
 import mineIcon from '../../assets/mineIcon.svg'
 
-const mapStateToProps = ({ mineData, gameStatus }) => {
-	return { mineData, gameStatus }
+const mapStateToProps = ({ mineData, gameStatus, safeBlockLeft }) => {
+	return { mineData, gameStatus, safeBlockLeft }
 }
 
-const MineBlock = ({ mineData = [], row, col, dispatch }) => {
+const MineBlock = ({ mineData = [], row, col, safeBlockLeft, dispatch }) => {
 	const thisBlock = mineData[col][row]
 
 	const onBlockClick = (isMine) => {
