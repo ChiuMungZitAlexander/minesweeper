@@ -42,6 +42,22 @@
     background-color: #ccc;
 }
 
+.menu-selection > .menu-right-arrow {
+    color: transparent;
+}
+
+.menu-selection > .menu-right-arrow::before {
+    border-color: transparent transparent transparent #000;
+    border-width: 4px;
+    border-style: solid;
+    content: '';
+    height: 0;
+    position: absolute;
+    right: 1px;
+    top: 10px;
+    width: 0;
+}
+
 .menu-selection > .submenu-content {
     background-color: #eee;
     border: 1px solid #aaa;

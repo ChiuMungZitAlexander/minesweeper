@@ -38,7 +38,7 @@ const MENU_CONFIG = [
         selections: [
             {
                 title: 'About',
-                key: 'About',
+                key: 'about',
             }
         ]
     },
@@ -79,6 +79,18 @@ class Menu extends React.Component {
 
     handMenuClick = (e, key) => {
         e.stopPropagation()
+
+        if (key === 'about') {
+            this.setState({
+                level1Expanded: null,
+                submenuExpanded: null,
+            }, () => {
+                window.alert('Copyright © 2018 By Alexander Zhao')
+            })
+        }
+        if (key === 'exit') {
+            window.close()
+        }
     }
 
     handSubmenuClick = (e, key) => {
@@ -124,7 +136,7 @@ class Menu extends React.Component {
                                             onClick={e => this.handMenuClick(e, selection.key)}
                                         >
                                             {selection.title}
-                                            {selection.subMenu && <i>→</i>}
+                                            {selection.subMenu && <i className="menu-right-arrow">→</i>}
                                             {selection.subMenu && selection.key === submenuExpanded
                                                 && <ul className="submenu-content">
                                                     {selection.subMenu.map(submenu => (
