@@ -14,6 +14,20 @@ const mineSweeperReducers = (state, action) => {
                 gameStatus: action.isMine ? 'lose' : safeBlockLeft ? 'underway' : 'win',
                 safeBlockLeft: action.isMine ? state.safeBlockLeft : safeBlockLeft,
             })
+        case 'BLOCK_RIGHT_CLICK':
+            const newData = state.mineData.map((col, i) => (i === action.col
+                ? col.map((row, j) => (j === action.row
+                    ? { ...row, noted: !row.noted }
+                    : row
+                ))
+                : col
+            ))
+            return Object.assign({}, state, {
+                mineData: newData,
+                safeBlockLeft: newData[action.col][action.row].noted
+                    ? state.safeBlockLeft + 1
+                    : state.safeBlockLeft - 1
+            })
         case 'DIFFICULTY_CHANGE':
             const { difficulty = 'easy' } = action
             return Object.assign({}, state, {

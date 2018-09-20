@@ -1,0 +1,80 @@
+.menu-wrapper {
+    flex-grow: 1;
+}
+
+.menu-wrapper > .menu-title {
+    display: block;
+    margin: 0;
+    padding: 0;
+}
+
+.menu-title > .menu-item {
+    cursor: pointer;
+    display: inline-block;
+    line-height: 30px;
+    padding: 0 10px;
+    position: relative;
+}
+
+.menu-title > .menu-item:hover {
+    background-color: #ccc;
+    transition: .2s;
+}
+
+.menu-content {
+    background-color: #eee;
+    border: 1px solid #aaa;
+    box-shadow: 1px 2px 2px 0 rgba(0, 0, 0, .6);
+    left: 0;
+    min-width: 60px;
+    padding: 0;
+    position: absolute;
+    z-index: 1001;
+}
+
+.menu-content > .menu-selection {
+    background-color: #eee;
+    list-style: none;
+    padding: 0 10px;
+    position: relative;
+}
+
+.menu-content > .menu-selection:hover {
+    background-color: #ccc;
+}
+
+.menu-selection > .menu-right-arrow {
+    color: transparent;
+}
+
+.menu-selection > .menu-right-arrow::before {
+    border-color: transparent transparent transparent #000;
+    border-width: 4px;
+    border-style: solid;
+    content: '';
+    height: 0;
+    position: absolute;
+    right: 1px;
+    top: 10px;
+    width: 0;
+}
+
+.menu-selection > .submenu-content {
+    background-color: #eee;
+    border: 1px solid #aaa;
+    box-shadow: 1px 2px 2px 0 rgba(0, 0, 0, .6);
+    left: 100%;
+    padding: 0;
+    position: absolute;
+    top: 0;
+    z-index: 1001;
+}
+
+.submenu-content > .submenu-selection {
+    list-style: none;
+    padding: 0 10px;
+}
+
+.submenu-content > .submenu-selection:hover {
+    background-color: #ccc;
+}
