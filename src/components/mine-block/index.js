@@ -38,6 +38,7 @@ const MineBlock = ({ mineData = [], row, col, dispatch }) => {
 				</div>
 				: thisBlock.minesAround)
 			}
+			{thisBlock.noted && "noted"}
 		</div>
 	)
 }

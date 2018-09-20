@@ -7,7 +7,9 @@ export const mineBlockClickHandler = (mineData, row, col, difficulty) => {
     let newMineData = cloneDeep(mineData)
 
     const autoClickBlocksAround = ([row, col]) => {
-        if (!newMineData[col][row].clicked && !newMineData[col][row].isMine) {
+        if (!newMineData[col][row].clicked
+            && !newMineData[col][row].isMine
+            && !newMineData[col][row].noted) {
             newMineData[col][row].clicked = true
 
             !newMineData[col][row].minesAround && Object.values(DIRECTIONS).forEach(direction => {
@@ -37,6 +39,7 @@ export const generateMineBoardData = (difficulty = DIFFICULTY.EASY) => {
             {
                 clicked: false,
                 isMine: false,
+                noted: false,
                 minesAround: 0
             }
         ))

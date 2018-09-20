@@ -5,11 +5,10 @@ export const clickBlock = (row, col, isMine) => ({
     isMine,
 })
 
-export const rightClickBlock = (row, col, isMine) => ({
+export const rightClickBlock = (row, col) => ({
     type: 'BLOCK_RIGHT_CLICK',
     row,
     col,
-    isMine,
 })
 
 export const changeDifficulty = (difficulty) => ({

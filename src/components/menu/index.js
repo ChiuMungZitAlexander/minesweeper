@@ -55,16 +55,18 @@ class Menu extends React.Component {
     }
 
     componentDidMount = () => {
-        window.addEventListener('click', () => {
-            this.setState({
-                level1Expanded: null,
-                submenuExpanded: null,
-            })
-        })
+        window.addEventListener('click', this.resetState)
     }
 
     componentWillUnmount = () => {
-        window.removeEventListener('click')
+        window.removeEventListener('click', this.resetState)
+    }
+
+    resetState = () => {
+        this.setState({
+            level1Expanded: null,
+            submenuExpanded: null,
+        })
     }
 
     handleMenuTitleClick = (e, key) => {
@@ -96,10 +98,7 @@ class Menu extends React.Component {
     handSubmenuClick = (e, key) => {
         e.stopPropagation()
 
-        this.setState({
-            level1Expanded: null,
-            submenuExpanded: null,
-        })
+        this.resetState()
 
         const { alterDifficulty } = this.props
         alterDifficulty(key)
