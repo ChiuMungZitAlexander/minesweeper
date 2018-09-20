@@ -14,6 +14,9 @@ const mineSweeperReducers = (state, action) => {
                 gameStatus: action.isMine ? 'lose' : safeBlockLeft ? 'underway' : 'win',
                 safeBlockLeft: action.isMine ? state.safeBlockLeft : safeBlockLeft,
             })
+        case 'BLOCK_RIGHT_CLICK':
+            console.log(action.row, action.col)
+            return state
         case 'DIFFICULTY_CHANGE':
             const { difficulty = 'easy' } = action
             return Object.assign({}, state, {

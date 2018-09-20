@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 
-import { clickBlock } from '../../actions'
+import { clickBlock, rightClickBlock } from '../../actions'
 import mineIcon from '../../assets/mineIcon.svg'
 
 const mapStateToProps = ({ mineData, gameStatus }) => {
@@ -16,12 +16,19 @@ const MineBlock = ({ mineData = [], row, col, dispatch }) => {
 		dispatch(clickBlock(row, col, isMine))
 	}
 
+	const onBlockRightClick = () => {
+		dispatch(rightClickBlock(row, col))
+	}
+
 	return (
 		<div className={thisBlock.clicked ? "mine-block-clicked df" : "mine-block df"}
 			onClick={thisBlock.clicked
-				? _ => _
+				? () => {}
 				: () => onBlockClick(thisBlock.isMine)
 			}
+			onContextMenu={thisBlock.clicked
+				? () => {}
+				: () => onBlockRightClick()}
 		>
 			{thisBlock.clicked && (thisBlock.isMine
 				? <div className={"mine-container df"}>

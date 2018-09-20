@@ -5,7 +5,7 @@ import MineBoard from './components/mine-board'
 
 
 const App = () => (
-	<div className='minesweeper-app fcn'>
+	<div className='minesweeper-app fcn' onContextMenu={e => e.preventDefault()}>
 		<section className="title-area frn">
 			<div className='title'>Minesweeper</div>
 			<div className='control-button-group'>
