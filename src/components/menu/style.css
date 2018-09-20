@@ -22,6 +22,8 @@
 
 .menu-content {
     background-color: #eee;
+    border: 1px solid #aaa;
+    box-shadow: 1px 2px 2px 0 rgba(0, 0, 0, .6);
     left: 0;
     min-width: 60px;
     padding: 0;
@@ -42,6 +44,8 @@
 
 .menu-selection > .submenu-content {
     background-color: #eee;
+    border: 1px solid #aaa;
+    box-shadow: 1px 2px 2px 0 rgba(0, 0, 0, .6);
     left: 100%;
     padding: 0;
     position: absolute;

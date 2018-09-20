@@ -73,7 +73,24 @@ class Menu extends React.Component {
         const { level1Expanded } = this.state
         this.setState({
             level1Expanded: level1Expanded === key ? null : key,
+            submenuExpanded: null,
         })
+    }
+
+    handMenuClick = (e, key) => {
+        e.stopPropagation()
+    }
+
+    handSubmenuClick = (e, key) => {
+        e.stopPropagation()
+
+        this.setState({
+            level1Expanded: null,
+            submenuExpanded: null,
+        })
+
+        const { alterDifficulty } = this.props
+        alterDifficulty(key)
     }
 
     onMouseEnter = (key) => {
@@ -90,13 +107,12 @@ class Menu extends React.Component {
 
     render() {
         const { level1Expanded, submenuExpanded } = this.state
-        const { alterDifficulty } = this.props
         return (
             <div className="menu-wrapper">
                 <ul className="menu-title">
                     {MENU_CONFIG.map(menu => (
                         <li key={menu.key} className="menu-item"
-                            onClick={(e) => this.handleMenuTitleClick(e, menu.key)}
+                            onClick={e => this.handleMenuTitleClick(e, menu.key)}
                         >
                             {menu.title}
                             {menu.key === level1Expanded
@@ -105,6 +121,7 @@ class Menu extends React.Component {
                                         <li key={selection.key} className="menu-selection"
                                             onMouseEnter={() => this.onMouseEnter(selection.key)}
                                             onMouseLeave={this.onMouseLeave}
+                                            onClick={e => this.handMenuClick(e, selection.key)}
                                         >
                                             {selection.title}
                                             {selection.subMenu && <i>→</i>}
@@ -112,7 +129,7 @@ class Menu extends React.Component {
                                                 && <ul className="submenu-content">
                                                     {selection.subMenu.map(submenu => (
                                                         <li key={submenu.key} className="submenu-selection"
-                                                            onClick={() => alterDifficulty(submenu.key)}
+                                                            onClick={e => this.handSubmenuClick(e, submenu.key)}
                                                         >
                                                             {submenu.title}
                                                         </li>
