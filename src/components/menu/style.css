@@ -18,6 +18,7 @@
 
 .menu-title > .menu-item:hover {
     background-color: #ccc;
+    transition: .2s;
 }
 
 .menu-content {
