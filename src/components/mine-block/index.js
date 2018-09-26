@@ -22,7 +22,7 @@ const MineBlock = ({ mineData = [], row, col, safeBlockLeft, dispatch }) => {
 
 	return (
 		<div className={thisBlock.clicked ? "mine-block-clicked df" : "mine-block df"}
-			onClick={thisBlock.clicked
+			onClick={thisBlock.clicked || thisBlock.noted
 				? () => {}
 				: () => onBlockClick(thisBlock.isMine)
 			}

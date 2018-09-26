@@ -24,7 +24,7 @@ const mineSweeperReducers = (state, action) => {
             ))
             return Object.assign({}, state, {
                 mineData: newData,
-                safeBlockLeft: newData[action.col][action.row].noted
+                safeBlockLeft: newData[action.col][action.row].noted && !newData[action.col][action.row].isMine
                     ? state.safeBlockLeft + 1
                     : state.safeBlockLeft - 1
             })
