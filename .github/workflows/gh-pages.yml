@@ -26,8 +26,8 @@ jobs:
         npm install
         npm run build
     - name: commit to gh-page
-        run: |
-          git commit -am 'Release'
-          git push origin gh-pages
+      run: |
+        git commit -am 'Release'
+        git push origin gh-pages
       env:
         CI: true
