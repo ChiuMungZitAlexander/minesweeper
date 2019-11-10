@@ -21,7 +21,9 @@ jobs:
       run: git checkout gh-pages
     - name: rebase
       run: git rebase origin/master
-    - name: build
-      run: npm run build
+    - name: npm install and build
+      run: |
+        npm install
+        npm run build
       env:
         CI: true
