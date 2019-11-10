@@ -1,3 +1,4 @@
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
 
 module.exports = {
@@ -12,7 +13,7 @@ module.exports = {
 		extensions: ['.js']
 	},
 	output: {
-		path: path.resolve(__dirname, 'dist'),
+		path: path.resolve(__dirname, './'),
 		filename: 'minesweeper.bundle.js',
 	},
 	module: {
@@ -31,5 +32,11 @@ module.exports = {
 				use: ['file-loader'],
 			}
 		]
-	}
+	},
+	plugins: [
+		new HtmlWebpackPlugin({
+			filename: 'index.html',
+			template: './template.html'
+		})
+	]
 };
