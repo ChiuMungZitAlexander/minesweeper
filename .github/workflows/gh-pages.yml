@@ -17,10 +17,11 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
-    - uses: actions/checkout@gh-pages
-    - uses: actions/rebase@master
-    - name: npm install, build, and test
-      run: |
-        npm run build
+    - name: checkout to gh pages
+      run: git checkout gh-pages
+    - name: rebase
+      run: git rebase master
+    - name: build
+      run: npm run build
       env:
         CI: true
