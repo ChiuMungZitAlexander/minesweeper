@@ -20,7 +20,7 @@ jobs:
     - name: checkout to gh pages
       run: git checkout gh-pages
     - name: rebase
-      run: git rebase master
+      run: git rebase origin/master
     - name: build
       run: npm run build
       env:
