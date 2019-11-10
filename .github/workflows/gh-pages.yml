@@ -17,19 +17,13 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
-    - name: checkout to gh pages
-      run: git checkout gh-pages
-    - name: rebase
-      run: git rebase origin/master
     - name: npm install and build
       run: |
         npm install
         npm run build
-    - name: commit to gh-page
-      run: |
-        git config --global user.email "bee0060@126.com"
-        git config --global user.name "bee0060"
-        git commit -am 'Release'
-        git push origin gh-pages
+    - name: Deploy
+      uses: peaceiris/actions-gh-pages@v2.5.0
       env:
-        CI: true
+        ACTIONS_DEPLOY_KEY: ${{ secrets.ACTIONS_DEPLOY_KEY }}
+        PUBLISH_BRANCH: gh-pages
+        PUBLISH_DIR: ./dist

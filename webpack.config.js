@@ -13,7 +13,7 @@ module.exports = {
 		extensions: ['.js']
 	},
 	output: {
-		path: path.resolve(__dirname, './'),
+		path: path.resolve(__dirname, 'dist'),
 		filename: 'minesweeper.bundle.js',
 	},
 	module: {
