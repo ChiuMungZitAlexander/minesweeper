@@ -27,6 +27,8 @@ jobs:
         npm run build
     - name: commit to gh-page
       run: |
+        git config --global user.email "bee0060@126.com"
+        git config --global user.name "bee0060"
         git commit -am 'Release'
         git push origin gh-pages
       env:
